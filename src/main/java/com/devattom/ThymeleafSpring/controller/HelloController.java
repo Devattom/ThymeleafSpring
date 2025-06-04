@@ -1,5 +1,6 @@
 package com.devattom.ThymeleafSpring.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,21 @@ public class HelloController {
     public String processForm(Model model) {
         model.addAttribute("message", "Hello World!");
         model.addAttribute("date", LocalDateTime.now());
+        return "hello";
+    }
+
+    @RequestMapping("processFormModel")
+    public String processFormModel(HttpServletRequest request, Model model) {
+        String name = request.getParameter("name");
+
+        name = name.toUpperCase();
+
+        String hello = "Hello " + name + "!";
+
+        model.addAttribute("hello", hello);
+        model.addAttribute("message", "Hello World!");
+        model.addAttribute("date", LocalDateTime.now());
+
         return "hello";
     }
 }
