@@ -10,5 +10,8 @@
 <p th:text="${student.lastName}"></p>
 <p th:text="${student.country}"></p>
 <p th:text="${student.favoriteLanguage}"></p>
+<ul>
+    <li th:each="system: ${student.favoriteSystem}" th:text="${system}"></li>
+</ul>
 </body>
 </html>

@@ -33,6 +33,18 @@
         </div>
     </div>
 
+    <div>
+        <h2>Favorite Ops System</h2>
+        <div th:each="system: ${systems}">
+            <input type="checkbox"
+                   th:id="${system}"
+                   th:value="${system}"
+                   th:field="*{favoriteSystem}"
+            >
+            <label th:for="${system}" th:text="${system}"></label>
+        </div>
+    </div>
+
 
     <input type="submit" value="send">
 </form>
