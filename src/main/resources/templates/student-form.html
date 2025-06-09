@@ -22,6 +22,17 @@
             <option th:each="country: ${countries}" th:value="${country}" th:text="${country}"></option>
         </select>
     </div>
+    <div>
+        <h2>Favorite prog language</h2>
+        <div th:each="language : ${progLanguages}">
+            <input type="radio"
+                   th:id="${language}"
+                   th:value="${language}"
+                   th:field="*{favoriteLanguage}" />
+            <label th:for="${language}" th:text="${language}"></label>
+        </div>
+    </div>
+
 
     <input type="submit" value="send">
 </form>
