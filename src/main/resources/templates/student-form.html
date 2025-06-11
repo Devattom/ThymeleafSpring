@@ -14,6 +14,7 @@
     <div>
         <label for="lastname">lastname</label>
         <input type="text" id="lastname" th:field="*{lastName}">
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color: red" ></span>
     </div>
 
     <div>
@@ -22,6 +23,13 @@
             <option th:each="country: ${countries}" th:value="${country}" th:text="${country}"></option>
         </select>
     </div>
+
+    <div>
+        <label for="postalCode">PostalCode</label>
+        <input type="text" id="postalCode" th:field="*{postalCode}">
+        <span th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" style="color: red" ></span>
+    </div>
+
     <div>
         <h2>Favorite prog language</h2>
         <div th:each="language : ${progLanguages}">
